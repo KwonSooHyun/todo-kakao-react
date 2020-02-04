@@ -1,99 +1,104 @@
 html, body{
-  height:100%;
-  padding : 0;
-  margin : 0;
+    height:100%;
+    padding : 0;
+    margin : 0;
 }
-.app{
-  .header {
-      height: 30%;
-      width : 100%;
-      text-align: center;
-      background-color : darkblue;
-      .input {
-          padding-top:5%;
-          display: inline-block;
-          height: 80%;
-          width : 50%;
-          border-color: black;
-          text-align: center;
-          .inputTextarea{
-              width : 90%;
-              height : 80%;
-              float:left;
-              resize: none;
-          }
-          .createButton {
-              display:inline-block;
-              margin:0;
-              padding-top: 0.5rem;
-              padding-bottom: 0.5rem;
-              padding-left: 1rem;
-              padding-right: 1rem;
-              margin-left: 1rem;
-              background: #22b8cf;
-              border-radius: 3px;
-              color: white;
-              font-weight: 500;
-              cursor: pointer;
-          }
-          
-          .createButton:hover {
-              background: #3bc9db;
-          }
-      }
-  }
-  .wrapper {
-      height: 50%;
-      width : 100%;
-      background-color: ivory;
-      .WrapperLi[completed = true] > span  {
-          color: #999999;
-          text-decoration: line-through;
-      }
-  }
-  .bottom {
-      height: 10%;
-      width : 100%;
-      background-color: green;
-      .saveButton {
-          display:inline-block;
-          margin:0;
-          padding-top: 0.5rem;
-          padding-bottom: 0.5rem;
-          padding-left: 1rem;
-          padding-right: 1rem;
-          margin-left: 1rem;
-          background: #22b8cf;
-          border-radius: 3px;
-          color: white;
-          font-weight: 500;
-          cursor: pointer;
-      }
-  }
-  .modal {
-      display: none; 
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0,0.4);
-      .modalContent {
-          background-color: #fefefe;
-          margin: 15% auto; /* 15% from the top and centered */
-          padding: 20px;
-          border: 1px solid #888;
-          width: 50%;
-          .modalClose {
-              color: #aaa;
-              float: right;
-              font-size: 28px;
-              font-weight: bold;
-              cursor: pointer;
-          }
-      }
-  }
+body{
+    .header {
+        height: 40%;
+        width : 100%;
+        text-align: center;
+        border-color: black;
+        .input {
+            height: 100%;
+            width : 100%;
+            border-color: black;
+            .inputTextarea{
+                width : 100%;
+                height : 60%;
+                display: inline-block;
+                resize: none;
+            }
+            .createButton {
+                display: inline-block;
+                width:100%;
+                height:10%;
+                margin:0;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                margin-left: 1rem;
+                background: #595f53;
+                border-radius: 3px;
+                color: white;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            
+            .createButton:hover {
+                background: #3bc9db;
+            }
+        }
+    }
+    .wrapper {
+        width : 100%;
+        background-color: ivory;
+        .wrapperLi{
+            width : 100%;
+        }
+        li[completed = true] > span  {
+            color: #999999;
+            text-decoration: line-through;
+        }
+    }
+    .bottom {
+        height: 5%;
+        width : 100%;
+        .saveButton {
+            display:inline-block;
+            width:100%;
+            height:100%;
+            text-align: center;
+            margin:0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: 1rem;
+            background: #a3688f;
+            border-radius: 3px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .saveButton:hover {
+            background: #d9f16d;
+        }
+    }
+    .modal {
+        display: none; 
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        .modalContent {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            .modalClose {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
 }
