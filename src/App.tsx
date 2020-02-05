@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.scss';
 import TodoList from './components/TodoList';
 
@@ -18,8 +18,10 @@ type AppProps = {
     modalState : string;
 }
 
-export default function App({text , todos, modalState} : AppProps) {
-
+export default function App() {
+    const [text , setText] = useState("");
+    const [todos, setTodos] = useState(JSON.parse("{}"));
+    const [modalState, setModalState] = useState("none");
     init();
 
     /*
@@ -27,9 +29,9 @@ export default function App({text , todos, modalState} : AppProps) {
                 localstorage의 todos / 빈객체 전달
     */
     function init() : void{
-        todos = isTodosExist_(localStorage) ? decodeTodos_(localStorage.getItem("todos")) : JSON.parse("{}");
-        modalState = "none";
-        text="111";
+        // const tempTodos = isTodosExist_(localStorage) ? decodeTodos_(localStorage.getItem("todos")) : JSON.parse("{}");
+        // console.log(tempTodos);
+        // setTodos(tempTodos);
     }
 
 
@@ -83,7 +85,10 @@ export default function App({text , todos, modalState} : AppProps) {
                 "recordDate" : (new Date()).toLocaleString(),
                 "completed" : false
             }
-           {todos[id] = todo};
+            let tempTodos = todos;
+            tempTodos[id] = todo
+            setTodos(tempTodos);
+            setText("");
         },
 
         deleteTodo : function(id : string ){
@@ -91,16 +96,23 @@ export default function App({text , todos, modalState} : AppProps) {
                 //this.showModal("존재하지않는 일정입니다.");
                 return;
             }
-            {delete todos[id]};
+            let tempTodos = todos;
+            delete tempTodos[id]
+            setTodos(tempTodos);
         },
 
         changeTodoState : function(id : string) : void{
-            {todos[id]["completed"] = todos[id]["completed"] ? false : true};
+            let tempTodos = todos;
+            tempTodos[id]["completed"] = tempTodos[id]["completed"] ? false : true
+            setTodos(tempTodos);
         }
     
 
     }
-    
+    function useEffect(){
+        console.log(todos);
+    }
+
     return (
         <div className="app">
             <h1>react js version</h1>
@@ -119,7 +131,7 @@ export default function App({text , todos, modalState} : AppProps) {
                 </select>
                 <TodoList
                     todos = {todos}
-                ></TodoList>
+                />
             </div>
                 
             <div className="bottom">

@@ -1,4 +1,6 @@
-export default function TodoItem(props : any) : string{
+import React from 'react';
+
+export default function TodoItem(props : any) : any{
     const complete = props.todo.completed ? "할 일로 변경" : "완료로 변경";
     let buttonHtml = "";
     if(props.todo.completed){

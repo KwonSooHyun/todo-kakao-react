@@ -4,12 +4,13 @@ import TodoItem from './TodoItem';
 
 
 export default function TodoList(props : any){
-    const todos : Array<any> = props.todos;  
-    
+    const keyList : Array<string> = Object.keys(props.todos);  
+    console.log(keyList);
     return(
         <ul className="wrapperUl" id="wrapperUl">
-            {Object.keys(todos).map(value => {
-               <TodoItem></TodoItem>
+            {keyList.map(key => {    
+                //<TodoItem {...props.todos[key]}/>
+                console.log(key);
             })}
         </ul>
     );
